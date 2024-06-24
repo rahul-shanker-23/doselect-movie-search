@@ -1,13 +1,9 @@
 <template>
   <div class="card">
     <b>{{ props.movie.name }}</b>
-    <br />
-    Rating: {{ props.movie.rating }}/10
-    <br />
-    Genre: {{ props.movie.genre }}
-    <br />
-    Director: {{ props.movie.director }}
-    <br />
+    <p>Rating: {{ props.movie.rating }}/10</p>
+    <p>Genre: {{ props.movie.genre }}</p>
+    <p>Director: {{ props.movie.director }}</p>
   </div>
 </template>
 
@@ -26,8 +22,9 @@ const props = defineProps({
   padding: 10px;
   height: 200px;
   width: 200px;
-  margin: 8px;
   background-color: AntiqueWhite;
   text-align: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 </style>

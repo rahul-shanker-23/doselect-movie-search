@@ -1,20 +1,17 @@
 <template>
   <div>
-    <input type="text" v-model="inputText" @input="handleChange" />
-    <br />
-    sort by:
-    <input type="checkbox" v-model="sortOption" @change="handleChange" />
-    rating
-    <br />
-    choose genre:
-    <div v-for="item in genre" :key="g" style="display: inline">
-      <input
-        type="checkbox"
-        :value="item"
-        v-model="selectedOptions"
-        @change="handleChange"
-      />
-      {{ item }}
+    <input type="text" v-model="inputText" @input="handleChange" placeholder="type here ..." />
+    <div class="row">
+      <label for="">Sort By:</label>
+      <input type="checkbox" v-model="sortOption" @change="handleChange" />
+      Rating
+    </div>
+    <div class="row">
+      <label for="">Choose Genre:</label>
+      <div v-for="item in genre" :key="g" style="display: inline">
+        <input type="checkbox" :value="item" v-model="selectedOptions" @change="handleChange" />
+        {{ item }}
+      </div>
     </div>
 
     <div class="wrapper">
@@ -28,7 +25,7 @@
 import axios from "axios";
 import { APIURL } from "../API_URL";
 import Card from "./Card.vue";
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted } from "vue";
 const movies = ref([]);
 const filteredMovies = ref([]);
 const inputText = ref("");
@@ -62,10 +59,22 @@ function handleChange() {
 </script>
 
 <style>
+.row {
+  text-align: left;
+  margin-left: 100px;
+  margin-top: 10px;
+}
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 50px;
+  margin-top: 25px;
   margin-left: 100px;
+}
+label {
+  display: inline-block;
+  width: 120px;
+}
+input[type="text"] {
+  width: 450px;
 }
 </style>
