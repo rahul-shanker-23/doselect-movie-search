@@ -1,6 +1,7 @@
 {
     "version": "1.0",
     "default_open_files": [
+      "src/components/Movie.vue"
       ],
     "read_only_files": [
       "tests/*", 
