@@ -8,7 +8,7 @@
     </div>
     <div class="row">
       <label for="">Choose Genre:</label>
-      <div v-for="item in genre" :key="g" style="display: inline">
+      <div v-for="item in genre" :key="g" style="display: inline-block">
         <input type="checkbox" :value="item" v-model="selectedOptions" @change="handleChange" />
         {{ item }}
       </div>
@@ -89,6 +89,13 @@ input[type="text"] {
     text-align: left;
     margin-left: 10px;
     margin-top: 10px;
+  }
+  label {
+    display: inline-block;
+    width: auto;
+  }
+  input[type="text"] {
+    width: 300px;
   }
 }
 </style>
