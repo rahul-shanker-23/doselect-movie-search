@@ -75,6 +75,20 @@ label {
   width: 120px;
 }
 input[type="text"] {
-  width: 450px;
+  width: 400px;
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    margin-left: 10px;
+  }
+  .row {
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
 }
 </style>
