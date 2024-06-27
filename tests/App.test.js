@@ -45,15 +45,15 @@ describe("App", () => {
     const input = wrapper.find("input");
     await input.setValue("the");
     expect(wrapper.findAll(".wrapper .card").length).toBe(9);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("The Godfather");
-    expect(wrapper.findAll(".wrapper .card > b").at(1).text()).toBe("The Dark Knight");
-    expect(wrapper.findAll(".wrapper .card > b").at(2).text()).toBe("The Shawshank Redemption");
-    expect(wrapper.findAll(".wrapper .card > b").at(3).text()).toBe("The Matrix");
-    expect(wrapper.findAll(".wrapper .card > b").at(4).text()).toBe("The Silence of the Lambs");
-    expect(wrapper.findAll(".wrapper .card > b").at(5).text()).toBe("The Departed");
-    expect(wrapper.findAll(".wrapper .card > b").at(6).text()).toBe("The Lion King");
-    expect(wrapper.findAll(".wrapper .card > b").at(7).text()).toBe("The Green Mile");
-    expect(wrapper.findAll(".wrapper .card > b").at(8).text()).toBe("The Lord of the Rings");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("The Godfather");
+    expect(wrapper.findAll(".wrapper .card > b")[1].text()).toBe("The Dark Knight");
+    expect(wrapper.findAll(".wrapper .card > b")[2].text()).toBe("The Shawshank Redemption");
+    expect(wrapper.findAll(".wrapper .card > b")[3].text()).toBe("The Matrix");
+    expect(wrapper.findAll(".wrapper .card > b")[4].text()).toBe("The Silence of the Lambs");
+    expect(wrapper.findAll(".wrapper .card > b")[5].text()).toBe("The Departed");
+    expect(wrapper.findAll(".wrapper .card > b")[6].text()).toBe("The Lion King");
+    expect(wrapper.findAll(".wrapper .card > b")[7].text()).toBe("The Green Mile");
+    expect(wrapper.findAll(".wrapper .card > b")[8].text()).toBe("The Lord of the Rings");
   });
 
   it("should show No Movies Found", async () => {
@@ -71,17 +71,17 @@ describe("App", () => {
     await flushPromises();
     //console.log(wrapper.html());
     expect(wrapper.findAll(".wrapper .card").length).toBe(20);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("Inception");
-    expect(wrapper.findAll(".wrapper .card > b").at(3).text()).toBe("Forrest Gump");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Inception");
+    expect(wrapper.findAll(".wrapper .card > b")[3].text()).toBe("Forrest Gump");
     const checkbox = wrapper.find('input[type="checkbox"]');
     await checkbox.setChecked(true);
     expect(wrapper.findAll(".wrapper .card").length).toBe(20);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("The Shawshank Redemption");
-    expect(wrapper.findAll(".wrapper .card > b").at(3).text()).toBe("Pulp Fiction");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("The Shawshank Redemption");
+    expect(wrapper.findAll(".wrapper .card > b")[3].text()).toBe("Pulp Fiction");
     await checkbox.setChecked(false);
     expect(wrapper.findAll(".wrapper .card").length).toBe(20);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("Inception");
-    expect(wrapper.findAll(".wrapper .card > b").at(3).text()).toBe("Forrest Gump");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Inception");
+    expect(wrapper.findAll(".wrapper .card > b")[3].text()).toBe("Forrest Gump");
   });
 
   it("should sort movies by ratings along with input value", async () => {
@@ -91,51 +91,51 @@ describe("App", () => {
     const input = wrapper.find("input");
     await input.setValue("p");
     expect(wrapper.findAll(".wrapper .card").length).toBe(6);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("Inception");
-    expect(wrapper.findAll(".wrapper .card > b").at(1).text()).toBe("Forrest Gump");
-    expect(wrapper.findAll(".wrapper .card > b").at(2).text()).toBe("Pulp Fiction");
-    expect(wrapper.findAll(".wrapper .card > b").at(3).text()).toBe("The Shawshank Redemption");
-    expect(wrapper.findAll(".wrapper .card > b").at(4).text()).toBe("The Departed");
-    expect(wrapper.findAll(".wrapper .card > b").at(5).text()).toBe("Saving Private Ryan");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Inception");
+    expect(wrapper.findAll(".wrapper .card > b")[1].text()).toBe("Forrest Gump");
+    expect(wrapper.findAll(".wrapper .card > b")[2].text()).toBe("Pulp Fiction");
+    expect(wrapper.findAll(".wrapper .card > b")[3].text()).toBe("The Shawshank Redemption");
+    expect(wrapper.findAll(".wrapper .card > b")[4].text()).toBe("The Departed");
+    expect(wrapper.findAll(".wrapper .card > b")[5].text()).toBe("Saving Private Ryan");
     await checkbox.setChecked(true);
     expect(wrapper.findAll(".wrapper .card").length).toBe(6);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("The Shawshank Redemption");
-    expect(wrapper.findAll(".wrapper .card > b").at(1).text()).toBe("Pulp Fiction");
-    expect(wrapper.findAll(".wrapper .card > b").at(2).text()).toBe("Inception");
-    expect(wrapper.findAll(".wrapper .card > b").at(3).text()).toBe("Forrest Gump");
-    expect(wrapper.findAll(".wrapper .card > b").at(4).text()).toBe("Saving Private Ryan");
-    expect(wrapper.findAll(".wrapper .card > b").at(5).text()).toBe("The Departed");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("The Shawshank Redemption");
+    expect(wrapper.findAll(".wrapper .card > b")[1].text()).toBe("Pulp Fiction");
+    expect(wrapper.findAll(".wrapper .card > b")[2].text()).toBe("Inception");
+    expect(wrapper.findAll(".wrapper .card > b")[3].text()).toBe("Forrest Gump");
+    expect(wrapper.findAll(".wrapper .card > b")[4].text()).toBe("Saving Private Ryan");
+    expect(wrapper.findAll(".wrapper .card > b")[5].text()).toBe("The Departed");
     await checkbox.setChecked(false);
     expect(wrapper.findAll(".wrapper .card").length).toBe(6);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("Inception");
-    expect(wrapper.findAll(".wrapper .card > b").at(1).text()).toBe("Forrest Gump");
-    expect(wrapper.findAll(".wrapper .card > b").at(2).text()).toBe("Pulp Fiction");
-    expect(wrapper.findAll(".wrapper .card > b").at(3).text()).toBe("The Shawshank Redemption");
-    expect(wrapper.findAll(".wrapper .card > b").at(4).text()).toBe("The Departed");
-    expect(wrapper.findAll(".wrapper .card > b").at(5).text()).toBe("Saving Private Ryan");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Inception");
+    expect(wrapper.findAll(".wrapper .card > b")[1].text()).toBe("Forrest Gump");
+    expect(wrapper.findAll(".wrapper .card > b")[2].text()).toBe("Pulp Fiction");
+    expect(wrapper.findAll(".wrapper .card > b")[3].text()).toBe("The Shawshank Redemption");
+    expect(wrapper.findAll(".wrapper .card > b")[4].text()).toBe("The Departed");
+    expect(wrapper.findAll(".wrapper .card > b")[5].text()).toBe("Saving Private Ryan");
   });
 
   it("should show movies by genre", async () => {
     const wrapper = mount(Movie);
     await flushPromises();
     expect(wrapper.findAll(".wrapper .card").length).toBe(20);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("Inception");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Inception");
     const checkbox = wrapper.find('input[type="checkbox"][value="Sci-Fi"]');
     await checkbox.setChecked(true);
     expect(wrapper.findAll(".wrapper .card").length).toBe(3);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("Inception");
-    expect(wrapper.findAll(".wrapper .card > b").at(1).text()).toBe("The Matrix");
-    expect(wrapper.findAll(".wrapper .card > b").at(2).text()).toBe("Interstellar");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Inception");
+    expect(wrapper.findAll(".wrapper .card > b")[1].text()).toBe("The Matrix");
+    expect(wrapper.findAll(".wrapper .card > b")[2].text()).toBe("Interstellar");
     await checkbox.setChecked(false);
     expect(wrapper.findAll(".wrapper .card").length).toBe(20);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("Inception");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Inception");
   });
 
   it("should show movies by multiple genre", async () => {
     const wrapper = mount(Movie);
     await flushPromises();
     expect(wrapper.findAll(".wrapper .card").length).toBe(20);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("Inception");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Inception");
     const checkbox1 = wrapper.find('input[type="checkbox"][value="Biography"]');
     const checkbox2 = wrapper.find('input[type="checkbox"][value="Animation"]');
     const checkbox3 = wrapper.find('input[type="checkbox"][value="Adventure"]');
@@ -145,10 +145,10 @@ describe("App", () => {
     await checkbox3.setChecked(true);
     await checkbox4.setChecked(true);
     expect(wrapper.findAll(".wrapper .card").length).toBe(4);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("Schindler's List");
-    expect(wrapper.findAll(".wrapper .card > b").at(1).text()).toBe("The Lion King");
-    expect(wrapper.findAll(".wrapper .card > b").at(2).text()).toBe("The Lord of the Rings");
-    expect(wrapper.findAll(".wrapper .card > b").at(3).text()).toBe("Titanic");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Schindler's List");
+    expect(wrapper.findAll(".wrapper .card > b")[1].text()).toBe("The Lion King");
+    expect(wrapper.findAll(".wrapper .card > b")[2].text()).toBe("The Lord of the Rings");
+    expect(wrapper.findAll(".wrapper .card > b")[3].text()).toBe("Titanic");
     await checkbox1.setChecked(false);
     expect(wrapper.findAll(".wrapper .card").length).toBe(3);
     await checkbox2.setChecked(false);
@@ -157,7 +157,7 @@ describe("App", () => {
     expect(wrapper.findAll(".wrapper .card").length).toBe(1);
     await checkbox4.setChecked(false);
     expect(wrapper.findAll(".wrapper .card").length).toBe(20);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("Inception");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Inception");
   });
 
   it("should show movies by applying genre, sorting and input value", async () => {
@@ -173,9 +173,9 @@ describe("App", () => {
     await checkbox2.setChecked(true);
 
     expect(wrapper.findAll(".wrapper .card").length).toBe(3);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("Pulp Fiction");
-    expect(wrapper.findAll(".wrapper .card > b").at(1).text()).toBe("Inception");
-    expect(wrapper.findAll(".wrapper .card > b").at(2).text()).toBe("The Departed");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Pulp Fiction");
+    expect(wrapper.findAll(".wrapper .card > b")[1].text()).toBe("Inception");
+    expect(wrapper.findAll(".wrapper .card > b")[2].text()).toBe("The Departed");
 
     await input.setValue("");
     await checkbox.setChecked(false);
@@ -183,6 +183,6 @@ describe("App", () => {
     await checkbox2.setChecked(false);
 
     expect(wrapper.findAll(".wrapper .card").length).toBe(20);
-    expect(wrapper.findAll(".wrapper .card > b").at(0).text()).toBe("Inception");
+    expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Inception");
   });
 });
