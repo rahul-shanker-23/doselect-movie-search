@@ -8,7 +8,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 const props = defineProps({
   movie: {
     type: Object,
@@ -31,8 +30,8 @@ const props = defineProps({
 @media screen and (max-width: 600px) {
   .card {
     padding: 5px;
-    height: 150px;
-    width: 150px;
+    height: 125px;
+    width: 125px;
     background-color: AntiqueWhite;
     text-align: left;
     margin-right: 5px;

@@ -8,14 +8,14 @@
     </div>
     <div class="row">
       <label for="">Choose Genre:</label>
-      <div v-for="item in genre" :key="g" style="display: inline-block">
+      <div v-for="item in genre" :key="item" style="display: inline-block">
         <input type="checkbox" :value="item" v-model="selectedOptions" @change="handleChange" />
         {{ item }}
       </div>
     </div>
 
     <div class="wrapper">
-      <Card v-for="movie in filteredMovies" :movie="movie" />
+      <Card v-for="movie in filteredMovies" :movie="movie" :key="movie.id" />
       <div v-if="!filteredMovies.length">No Movies Found</div>
     </div>
   </div>

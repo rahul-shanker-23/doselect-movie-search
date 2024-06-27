@@ -12,7 +12,10 @@ module.exports = {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
 
     // Mocking image files
-    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$":
-      "<rootDir>/__mocks__/fileMock.js",
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/__mocks__/fileMock.js",
+  },
+  globals: {
+    // define all globals for test here
+    PROXY_URI: null,
   },
 };

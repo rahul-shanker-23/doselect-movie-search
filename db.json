@@ -103,7 +103,7 @@
           "name": "The Lion King",
           "genre": "Animation",
           "rating": 8.5,
-          "director": "Roger Allers, Rob Minkoff"
+          "director": "Roger Allers"
         },
         {
           "id": 16,
@@ -128,10 +128,10 @@
         },
         {
           "id": 19,
-          "name": "The Lord of the Rings: The Fellowship of the Ring",
+          "name": "The Lord of the Rings",
           "genre": "Adventure",
           "rating": 8.8,
-          "director": "Peter Jackson"
+          "director": "Peter"
         },
         {
           "id": 20,
