@@ -15,43 +15,35 @@
     </div>
 
     <div class="wrapper">
-      <Card v-for="movie in filteredMovies" :movie="movie" :key="movie.id" />
-      <div v-if="!filteredMovies.length">No Movies Found</div>
+      <Card v-for="movie in movies" :movie="movie" :key="movie.id" />
+      <div v-if="!movies.length">No Movies Found</div>
     </div>
   </div>
 </template>
 
 <script setup>
-import axios from "axios";
-import { APIURL } from "../API_URL";
 import Card from "./Card.vue";
-import { ref, onMounted } from "vue";
-const movies = ref([]);
-const filteredMovies = ref([]);
+import { ref } from "vue";
+const props = defineProps(["movies", "genre"]);
+const movies = ref(props.movies);
+
+/* write your code here */
 const inputText = ref("");
 const selectedOptions = ref([]);
 const sortOption = ref();
-const genre = ref([]);
-
-onMounted(async () => {
-  const res = await axios.get(`${APIURL}dummyData`);
-  movies.value = res.data;
-  filteredMovies.value = res.data;
-  genre.value = [...new Set(res.data.map((movie) => movie.genre))];
-});
+const copyMovies = ref([]);
+copyMovies.value = movies.value;
 
 function handleChange() {
-  filteredMovies.value = movies.value.filter((movie) =>
-    movie.name.toLowerCase().includes(inputText.value.toLowerCase())
-  );
+  movies.value = copyMovies.value.filter((movie) => movie.name.toLowerCase().includes(inputText.value.toLowerCase()));
 
   if (selectedOptions.value.length > 0)
-    filteredMovies.value = filteredMovies.value.filter((movie) => {
+    movies.value = movies.value.filter((movie) => {
       return selectedOptions.value.includes(movie.genre);
     });
 
   if (sortOption.value)
-    filteredMovies.value.sort((a, b) => {
+    movies.value.sort((a, b) => {
       if (a.rating > b.rating) return -1;
       return 1;
     });

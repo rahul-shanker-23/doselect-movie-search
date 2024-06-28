@@ -1,5 +1,5 @@
 import { flushPromises, mount } from "@vue/test-utils";
-import Movie from "../src/components/Movie.vue";
+import App from "../src/App.vue";
 import axios from "axios";
 import data from "../db.json";
 jest.mock("axios");
@@ -10,7 +10,7 @@ beforeEach(() => {
 
 describe("App", () => {
   it("should show movie on input value", async () => {
-    const wrapper = mount(Movie);
+    const wrapper = mount(App);
     await flushPromises();
     const input = wrapper.find("input");
     await input.setValue("Inception");
@@ -19,7 +19,7 @@ describe("App", () => {
   });
 
   it("should show movie on substring input value ", async () => {
-    const wrapper = mount(Movie);
+    const wrapper = mount(App);
     await flushPromises();
     const input = wrapper.find("input");
     await input.setValue("father");
@@ -28,7 +28,7 @@ describe("App", () => {
   });
 
   it("should show movie on Upper and Lower Case input value", async () => {
-    const wrapper = mount(Movie);
+    const wrapper = mount(App);
     await flushPromises();
     const input = wrapper.find("input");
     await input.setValue("dark knight");
@@ -40,7 +40,7 @@ describe("App", () => {
   });
 
   it("should show all movie on substring input value", async () => {
-    const wrapper = mount(Movie);
+    const wrapper = mount(App);
     await flushPromises();
     const input = wrapper.find("input");
     await input.setValue("the");
@@ -57,7 +57,7 @@ describe("App", () => {
   });
 
   it("should show No Movies Found", async () => {
-    const wrapper = mount(Movie);
+    const wrapper = mount(App);
     await flushPromises();
     const input = wrapper.find("input");
     await input.setValue("hello");
@@ -67,7 +67,7 @@ describe("App", () => {
   });
 
   it("should sort movies by ratings", async () => {
-    const wrapper = mount(Movie);
+    const wrapper = mount(App);
     await flushPromises();
     //console.log(wrapper.html());
     expect(wrapper.findAll(".wrapper .card").length).toBe(20);
@@ -85,7 +85,7 @@ describe("App", () => {
   });
 
   it("should sort movies by ratings along with input value", async () => {
-    const wrapper = mount(Movie);
+    const wrapper = mount(App);
     await flushPromises();
     const checkbox = wrapper.find('input[type="checkbox"]');
     const input = wrapper.find("input");
@@ -116,7 +116,7 @@ describe("App", () => {
   });
 
   it("should show movies by genre", async () => {
-    const wrapper = mount(Movie);
+    const wrapper = mount(App);
     await flushPromises();
     expect(wrapper.findAll(".wrapper .card").length).toBe(20);
     expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Inception");
@@ -132,7 +132,7 @@ describe("App", () => {
   });
 
   it("should show movies by multiple genre", async () => {
-    const wrapper = mount(Movie);
+    const wrapper = mount(App);
     await flushPromises();
     expect(wrapper.findAll(".wrapper .card").length).toBe(20);
     expect(wrapper.findAll(".wrapper .card > b")[0].text()).toBe("Inception");
@@ -161,7 +161,7 @@ describe("App", () => {
   });
 
   it("should show movies by applying genre, sorting and input value", async () => {
-    const wrapper = mount(Movie);
+    const wrapper = mount(App);
     await flushPromises();
     const input = wrapper.find("input");
     await input.setValue("p");
